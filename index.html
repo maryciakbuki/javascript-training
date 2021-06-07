@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Carousel</title>
+    <style>
+        #carousel-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 200px;
+            width: 400px;
+            background: #ececec;
+            margin: auto;
+        }
+
+        .slides {
+            display: none;
+            text-align: center;
+        }
+
+        .slides:first-of-type {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel-wrapper">
+        <button id="prev" onclick="prev(-1)">Prev</button>
+        <div class="slide-container">
+            <div class="slides">
+                <div class="text">Slide 1</div>
+            </div>
+            <div class="slides">
+                <div class="text">Slide 2</div>
+            </div>
+            <div class="slides">
+                <div class="text">Slide 3</div>
+            </div>
+            <div class="slides">
+                <div class="text">Slide 4</div>
+            </div>
+            <div class="slides">
+                <div class="text">Slide 5</div>
+            </div>
+        </div>
+        <button id="next" onclick="next(1)">Next</button>
+
+    </div>
+
+    <script>
+        var currentSlide = 1;
+        var slides = document.getElementsByClassName("slides");
+        function prev(x) {
+            slideShow(currentSlide += x);
+            console.log("clicked prev btn");
+
+        }
+
+        function next(x) {
+            slideShow(currentSlide += x);
+            console.log("clicked next btn");
+        }
+
+        function slideShow(x) {
+            var i;
+            if (x > slides.length) {
+                currentSlide = 1
+            }
+            if (x < 1) {
+                currentSlide = slides.length
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[currentSlide - 1].style.display = "block";
+
+        }
+    </script>
+
+</body>
+
+</html>
