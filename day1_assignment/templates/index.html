@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title> </title>
+        <link rel="stylesheet" href="../templates/style.css">    
+    </head>
+    <body>
+        <!-- <div class=""> -->
+            <img id="img-1" src="../1b58ef6e3d36a42e01992accf5c52d6eea244353.jpeg" width="auto" height="700px">
+            <img id="img-2" class="hidden" src="../h1Bt4q.jpeg" width="auto" height="700px">
+            <div>
+                <span> <a href=""> Prev </a></span>
+                <span> <a href="" onclick="showNext()"> Next </a></span>
+            </div>
+        <!-- </div> -->
+    </body>
+    <script type="text/javascript">
+        var default_id = 'img-1';
+        var id = 1;
+        function showNext(){
+            var curr_id = id; 
+            var next_id = id + 1;
+
+            console.log('curr_id', curr_id);  
+            console.log('next_id', next_id);
+
+            document.getElementById('img-'+curr_id).classList.add('hidden');            ;              
+            document.getElementById('img-'+next_id).classList.remove('hidden');               
+            document.getElementById('img-'+next_id).classList.add('show');               
+        }
+
+        function showPrev(){
+            var curr_id = id;
+            var prev_id = curr_id - 1;
+
+            console.log('curr_id', curr_id);
+            console.log('prev_id', prev_id);
+        }
+    </script>
+</html>
